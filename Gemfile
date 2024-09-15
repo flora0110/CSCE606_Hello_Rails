@@ -44,6 +44,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "sqlite3", ">= 1.4"
 end
 
 group :development do
@@ -59,8 +61,4 @@ end
 
 group :production do
   gem 'pg' # for Heroku deployment
-end
-
-group :development, :test do
-  gem "sqlite3", ">= 1.4"
 end
