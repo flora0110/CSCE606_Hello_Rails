@@ -1,22 +1,22 @@
-<h1>Movies</h1>
+<h1 style="font-family: Arial, sans-serif; color: #4CAF50;">Movies</h1>
 
-<table>
+<table style="width: 100%; border-collapse: collapse;">
   <thead>
-    <tr>
+    <tr style="background-color: #f2f2f2;">
       <th class="<%= 'asc' if session[:direction] == 'asc' && session[:sort] == 'title' %> <%= 'desc' if session[:direction] == 'desc' && session[:sort] == 'title' %>">
-        <%= link_to "Title", movies_path(sort: "title", direction: toggle_sort_direction("title")) %>
+        <%= link_to "Title", movies_path(sort: "title", direction: toggle_sort_direction("title")), style: "text-decoration: none; color: black;" %>
         <% if session[:sort] == "title" %>
           <%= session[:direction] == "asc" ? "↑" : "↓" %>
         <% end %>
-      </th>      
+      </th>
       <th class="<%= 'asc' if session[:direction] == 'asc' && session[:sort] == 'rating' %> <%= 'desc' if session[:direction] == 'desc' && session[:sort] == 'rating' %>">
-        <%= link_to "Rating", movies_path(sort: "rating", direction: toggle_sort_direction("rating")) %>
+        <%= link_to "Rating", movies_path(sort: "rating", direction: toggle_sort_direction("rating")), style: "text-decoration: none; color: black;" %>
         <% if session[:sort] == "rating" %>
           <%= session[:direction] == "asc" ? "↑" : "↓" %>
         <% end %>
       </th>
       <th class="<%= 'asc' if session[:direction] == 'asc' && session[:sort] == 'release_date' %> <%= 'desc' if session[:direction] == 'desc' && session[:sort] == 'release_date' %>">
-        <%= link_to "Release Date", movies_path(sort: "release_date", direction: toggle_sort_direction("release_date")) %>
+        <%= link_to "Release Date", movies_path(sort: "release_date", direction: toggle_sort_direction("release_date")), style: "text-decoration: none; color: black;" %>
         <% if session[:sort] == "release_date" %>
           <%= session[:direction] == "asc" ? "↑" : "↓" %>
         <% end %>
@@ -25,14 +25,19 @@
   </thead>
   <tbody>
     <% @movies.each do |movie| %>
-      <tr>
+      <tr style="border-bottom: 1px solid #ddd;">
         <td><%= movie.title %></td>
         <td><%= movie.rating %></td>
         <td><%= movie.release_date %></td>
-        <td><%= link_to "Show", movie_path(movie) %></td>
+        <td><%= link_to "Show", movie_path(movie), style: "color: #4CAF50;" %></td>
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" style="text-align: right;">Total Movies: <%= @movies.size %></td>
+    </tr>
+  </tfoot>
 </table>
 
-<%= link_to "New movie", new_movie_path %>
+<%= link_to "New movie", new_movie_path, style: "padding: 10px; background-color: #4CAF50; color: white; text-decoration: none;" %>
