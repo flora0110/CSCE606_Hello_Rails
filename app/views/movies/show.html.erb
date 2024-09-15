@@ -22,5 +22,8 @@
 <div style="margin-top: 20px;">
   <%= link_to "Edit this movie", edit_movie_path(@movie), style: "text-decoration: none; background-color: #4CAF50; color: white; padding: 10px 20px; border-radius: 5px; margin-right: 10px;" %>
   <%= link_to "Back to movies", movies_path, style: "text-decoration: none; background-color: #2196F3; color: white; padding: 10px 20px; border-radius: 5px;" %>
-  <%= button_to "Destroy this movie", @movie, method: :delete, style: "background-color: #f44336; color: white; padding: 10px 20px; border-radius: 5px; margin-left: 10px;" %>
+</div>
+
+<div style="margin-top: 20px;">
+  <%= button_to "Destroy this movie", @movie, method: :delete, style: "background-color: #f44336; color: white; padding: 10px 20px; border-radius: 5px;" %>
 </div>
