@@ -7,8 +7,8 @@ class MoviesController < ApplicationController
       session[:sort] = params[:sort]
     end
 
-    if params[:order]
-      session[:order] = params[:order]
+    if params[:direction]
+      session[:direction] = params[:direction]
     end
     #@movies = Movie.all
     sort_column = session[:sort] || "title"
