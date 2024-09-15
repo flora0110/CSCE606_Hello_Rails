@@ -9,8 +9,18 @@
           <%= params[:direction] == "asc" ? "↑" : "↓" %>
         <% end %>
       </th>      
-      <th><%= link_to "Rating", movies_path(sort: "rating", direction: toggle_sort_direction("rating")) %></th>
-      <th><%= link_to "Release Date", movies_path(sort: "release_date", direction: toggle_sort_direction("release_date")) %></th>
+      <th class="<%= 'asc' if params[:direction] == 'asc' && params[:sort] == 'rating' %> <%= 'desc' if params[:direction] == 'desc' && params[:sort] == 'rating' %>">
+        <%= link_to "Rating", movies_path(sort: "rating", direction: toggle_sort_direction("rating")) %>
+        <% if params[:sort] == "rating" %>
+          <%= params[:direction] == "asc" ? "↑" : "↓" %>
+        <% end %>
+      </th>
+      <th class="<%= 'asc' if params[:direction] == 'asc' && params[:sort] == 'release_date' %> <%= 'desc' if params[:direction] == 'desc' && params[:sort] == 'release_date' %>">
+        <%= link_to "Release Date", movies_path(sort: "release_date", direction: toggle_sort_direction("release_date")) %>
+        <% if params[:sort] == "release_date" %>
+          <%= params[:direction] == "asc" ? "↑" : "↓" %>
+        <% end %>
+      </th>
     </tr>
   </thead>
   <tbody>
